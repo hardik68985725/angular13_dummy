@@ -1,0 +1,48 @@
+<nav class="navbar navbar-vertical navbar-expand-md sidebar_secondary" id="sidenav-main">
+  <div class="container-fluid">
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
+      aria-controls="sidenav-collapse-main">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Brand -->
+    <a class="navbar-brand pt-0" routerLinkActive="active" [routerLink]="['/', 'panel', 'dashboard']">
+      <!-- <img src="assets/img/logo.png" class="navbar-brand-img" alt="Logo" style="width: 120px;" /> -->
+      inventory
+    </a>
+    <!-- User -->
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed" id="sidenav-collapse-main">
+      <!-- Collapse header -->
+      <div class="navbar-collapse-header d-md-none">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a routerLinkActive="active" [routerLink]="['/','panel','dashboard']">
+              <!-- <img src="assets/img/logo.png" alt="Logo" style="width: 120px;" /> -->
+              inventory
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <ul class="navbar-nav">
+        <ng-container *ngFor="let menuItem of menuItems;">
+          <li *ngIf="menuItem.has_sidebar_menu === 1" class="nav-item ni" [ngClass]="menuItem.class">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="menuItem.path">
+              <div class="d-flex">
+                <fa-icon *ngIf="menuItem.icon" [icon]="menuItem.icon" [fixedWidth]="true"></fa-icon>
+                <div class="pl-2"> {{menuItem.title}}</div>
+              </div>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

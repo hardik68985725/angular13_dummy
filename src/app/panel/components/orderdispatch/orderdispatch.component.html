@@ -1,0 +1,59 @@
+<div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h3 class="m-0 p-0 mb-0">Dispatch Details</h3>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="FormGroupDispatchDetails" (change)="change_value();">
+        <div class="card-body">
+            <div class="m-0 p-0">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-quantity">Quantity</label>
+                            <input type="text" formControlName="quantity" id="input-quantity" class="form-control"
+                                placeholder="Quantity" />
+                            <app-show-error [control]="FormGroupDispatchDetails.controls['quantity']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-driver_mobile_phone_number">Driver Mobile Phone
+                                Number</label>
+                            <input type="text" formControlName="driver_mobile_phone_number"
+                                id="input-driver_mobile_phone_number" class="form-control"
+                                placeholder="Driver Mobile Phone Number" />
+                            <app-show-error
+                                [control]="FormGroupDispatchDetails.controls['driver_mobile_phone_number']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-truck_number">Truck Number</label>
+                            <input type="text" formControlName="truck_number" id="input-truck_number"
+                                class="form-control" placeholder="Truck Number" />
+                            <app-show-error
+                                [control]="FormGroupDispatchDetails.controls['truck_number']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-other_details">Other Details</label>
+                            <input type="text" formControlName="other_details" id="input-other_details"
+                                class="form-control" placeholder="Other Details" />
+                            <app-show-error
+                                [control]="FormGroupDispatchDetails.controls['other_details']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

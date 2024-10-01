@@ -1,0 +1,12 @@
+:host {
+  .dropdown-item {
+    cursor: pointer;
+  }
+
+  .avatar {
+    cursor: pointer;
+    img {
+      border-radius: unset;
+    }
+  }
+}

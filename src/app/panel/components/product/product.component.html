@@ -1,0 +1,27 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h3 class="m-0 p-0 mb-0">Products</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a class="btn btn-sm btn-primary" routerLinkActive="active"
+                                [routerLink]="['/', 'panel', 'productaddedit']">
+                                Add Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-0 p-4 table-responsive">
+                    <table id="table_products" datatable [dtOptions]="DataTable_Product"
+                        [dtTrigger]="DataTableTrigger_Product" class="row-border hover">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

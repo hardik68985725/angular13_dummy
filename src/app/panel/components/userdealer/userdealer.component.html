@@ -1,0 +1,95 @@
+<div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="m-0 p-0 mb-0">Dealer details</h3>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="FormGroupUserdealer" (change)="change_value();">
+        <div class="card-body">
+            <div class="m-0 p-0">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-dealer_code">Dealer code</label>
+                            <input type="text" formControlName="dealer_code" id="input-dealer_code" class="form-control"
+                                placeholder="Dealer code">
+                            <app-show-error [control]="FormGroupUserdealer.controls['dealer_code']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-authorized_person_name">
+                                Authorized person name
+                            </label>
+                            <input type="text" formControlName="authorized_person_name"
+                                id="input-authorized_person_name" class="form-control"
+                                placeholder="Authorized person name">
+                            <app-show-error
+                                [control]="FormGroupUserdealer.controls['authorized_person_name']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group m-0 p-0">
+                            <label class="form-control-label" for="input-firm_type">Firm type</label>
+                            <select formControlName="firm_type" id="input-firm_type" class="form-control">
+                                <option value="" disabled>Firm type</option>
+                                <ng-container *ngFor="let firm_type of firm_types;">
+                                    <option [value]="firm_type.value">{{firm_type.text}}</option>
+                                </ng-container>
+                            </select>
+                            <app-show-error [control]="FormGroupUserdealer.controls['firm_type']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row py-3">
+                    <div class="col-lg-6">
+                        <app-address [title]="'Firm address'" formControlName="firm_address"></app-address>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <app-address
+                            [same_as]="{control_title: 'Firm address', address_control: FormGroupUserdealer.controls['firm_address']}"
+                            [title]="'Godown address'" formControlName="godown_address"></app-address>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-godown_capacity">
+                                Godown capacity
+                            </label>
+                            <input type="text" formControlName="godown_capacity" id="input-godown_capacity"
+                                class="form-control" placeholder="Godown capacity">
+                            <app-show-error
+                                [control]="FormGroupUserdealer.controls['godown_capacity']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-gst_number">Gst number</label>
+                            <input type="text" formControlName="gst_number" id="input-gst_number" class="form-control"
+                                placeholder="Gst number">
+                            <app-show-error [control]="FormGroupUserdealer.controls['gst_number']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-pan_detail">Pan detail</label>
+                            <input type="text" formControlName="pan_detail" id="input-pan_detail" class="form-control"
+                                placeholder="Pan detail">
+                            <app-show-error [control]="FormGroupUserdealer.controls['pan_detail']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

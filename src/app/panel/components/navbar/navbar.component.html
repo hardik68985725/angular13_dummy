@@ -1,0 +1,31 @@
+<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+  <div class="container-fluid justify-content-end">
+    <div class="dropdown">
+      <div class="dropdown-toggle mb-2 p-0">
+        <div class="media align-items-center">
+          <div class="media-body mr-2 p-0 d-none d-lg-block">
+            <span class="text-sm font-weight-bold text-white">
+              {{(currentUser && currentUser.email) ? currentUser.email : 'User'}}
+            </span>
+          </div>
+          <span class="avatar avatar-sm _rounded-circle" (click)="showMenu();">
+            <img alt="profile_picture" src="assets/img/icons/common/avatar.png">
+          </span>
+        </div>
+      </div>
+      <div class="dropdown-menu dropdown-menu-right" [class.show]="menu">
+        <a class="dropdown-item" routerLinkActive="active" [routerLink]="['/', 'panel', 'profile']"
+          (click)="showMenu()">
+          <i class="ni ni-user-run"></i>
+          <span>Profile</span>
+        </a>
+        <a class="dropdown-item" (click)="logout()">
+          <i class="ni ni-user-run"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="m-0 pt-5 pt-md-8 pb-8 header nav_header_bg"></div>

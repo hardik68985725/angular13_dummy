@@ -1,0 +1,96 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h3 class="m-0 p-0 mb-0">Order {{
+                                is_dispatcher
+                                ? 'Dispatch' : !(FormGroupOrder.controls['_id'] && FormGroupOrder.controls['_id'].value)
+                                ? 'Add' : 'Edit'
+                                }}</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="FormGroupOrderIsCreated">
+                    <form [formGroup]="FormGroupOrder" (ngSubmit)="FormGroupOrderSubmit();">
+                        <pre class="d-none">{{FormGroupOrder.value | json}}</pre>
+                        <div class="card-body">
+                            <div class="m-0 p-0">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group m-0 p-0">
+                                            <label class="form-control-label" for="input-product">Product</label>
+                                            <ng-container *ngIf="product_list.length">
+                                                <select formControlName="product" id="input-product"
+                                                    class="form-control"
+                                                    (change)="OnSelectProduct($any($event.target).value);"
+                                                    (loadeddata)="OnSelectProduct($any($event.target).value);">
+                                                    <option value="" disabled>Product</option>
+                                                    <ng-container *ngFor="let product of product_list">
+                                                        <option value="{{product.value}}">{{product.text}}</option>
+                                                    </ng-container>
+                                                </select>
+                                                <app-show-error
+                                                    [control]="FormGroupOrder.controls['product']"></app-show-error>
+
+                                                <img crossorigin="anonymous" class="selected_product_image"
+                                                    [src]="selected_product_image" />
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="dealer_list && dealer_list.length > 0" class="col-lg-6">
+                                        <div class="form-group m-0 p-0">
+                                            <label class="form-control-label" for="input-dealer">Dealer</label>
+                                            <select formControlName="dealer" id="input-dealer" class="form-control">
+                                                <option value="" disabled>Dealer</option>
+                                                <ng-container *ngFor="let dealer of dealer_list">
+                                                    <option value="{{dealer.value}}">{{dealer.text}}</option>
+                                                </ng-container>
+                                            </select>
+                                            <app-show-error
+                                                [control]="FormGroupOrder.controls['dealer']"></app-show-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-quantity">Quantity</label>
+                                            <input type="text" formControlName="quantity" id="input-quantity"
+                                                class="form-control" placeholder="Quantity">
+                                            <app-show-error
+                                                [control]="FormGroupOrder.controls['quantity']"></app-show-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <app-address formControlName="address"></app-address>
+                                    </div>
+
+                                    <div *ngIf="is_dispatcher" class="col-lg-12">
+                                        <app-dispatch_details formControlName="dispatch_details"></app-dispatch_details>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="m-0 p-0 pt-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                        <a class="btn btn-sm btn-danger" routerLinkActive="active"
+                                            [routerLink]="['/', 'panel', 'order']">
+                                            Back To Orders</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

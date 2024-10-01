@@ -1,0 +1,26 @@
+:host {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0px;
+  // border: 1px solid #000000;
+
+  * {
+    margin: 0px;
+    box-sizing: border-box;
+    border-radius: 0px !important;
+  }
+
+  img {
+    margin: 0px auto;
+    padding: 0px;
+    display: block;
+    width: 50%;
+    height: auto;
+  }
+
+  .button_upload {
+    // height: 45px;
+  }
+}

@@ -1,0 +1,105 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="m-0 p-0 mb-0">Profile</h3>
+                        </div>
+                    </div>
+                </div>
+                <form [formGroup]="FormGroupProfile" (ngSubmit)="FormGroupProfileSubmit();">
+                    <pre class="d-none">{{FormGroupProfile.value | json}}</pre>
+                    <div class="card-body">
+                        <div class="m-0 p-0">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Profile picture</label>
+                                        <app-media [Media]="Media" [MediaWhere]="'profile_picture'"
+                                            (OnMediaChange)="GetNewMedia($event);"></app-media>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-email">Email</label>
+                                        <input type="email" formControlName="email" id="input-email"
+                                            class="form-control" placeholder="Email">
+                                        <app-show-error [control]="FormGroupProfile.controls['email']"></app-show-error>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-password">Password</label>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            id="input-password" placeholder="Password" autocomplete="new-password" />
+                                        <app-show-error
+                                            [control]="FormGroupProfile.controls['password']"></app-show-error>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3 class="mb-0">If want to change password</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-new_password">New Password</label>
+                                        <input type="password" class="form-control" formControlName="new_password"
+                                            id="input-new_password" placeholder="New Password"
+                                            autocomplete="new-password" />
+                                        <app-show-error
+                                            [control]="FormGroupProfile.controls['new_password']"></app-show-error>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-new_password_confirm">Confirm
+                                            New Password</label>
+                                        <input type="password" formControlName="new_password_confirm"
+                                            id="input-new_password_confirm" class="form-control"
+                                            placeholder="Confirm Password" autocomplete="new-password" />
+                                        <app-show-error
+                                            [control]="FormGroupProfile.controls['new_password_confirm']"></app-show-error>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <app-userprofile formControlName="profile"></app-userprofile>
+                                </div>
+                            </div>
+
+                            <ng-container *ngIf="profile_role === 'dealer'">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <br />
+                                        <app-userdealer formControlName="dealer"></app-userdealer>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <div class="m-0 p-0 pt-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

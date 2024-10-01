@@ -1,0 +1,828 @@
+/* You can add global styles to this file, and also import other style files */
+/**************************************************************************************************/
+@import "~node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";
+@import "~src/variable.scss";
+@import "~src/assets/scss/argon.scss";
+/**************************************************************************************************/
+
+.validation-errors {
+  font-size: 13px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: rgba(255, 0, 0, 0.7);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: $btnPrimary !important;
+  border-color: $btnPrimary !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: $btnPrimary !important;
+  border-color: $btnPrimary !important;
+  &:hover {
+    color: #fff;
+    background-color: $btnPrimaryHover !important;
+    border-color: $btnPrimaryHover !important;
+  }
+}
+
+.table {
+  thead {
+    tr {
+      background-color: $secondaryColor;
+      color: #fff;
+      th {
+        font-size: 14px;
+        &:last-child {
+          text-align: center;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        &:last-child {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          padding-right: 1rem;
+          button {
+            padding: 10px;
+            &:last-child {
+              padding-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  border-bottom: 1px solid #d2d2d2 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: linear-gradient(to bottom, white 0%, #fff 100%) !important;
+  border: 1px solid #ddd !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0.4em 0.7em !important;
+}
+
+.dataTables_processing::before {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  border: 5px solid #f3f3f3;
+  border-top-color: rgb(243, 243, 243);
+  border-top-style: solid;
+  border-top-width: 5px;
+  border-top: 5px solid #003555;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  -webkit-animation: 0.7s linear infinite spin !important;
+  animation: 0.7s linear infinite spin !important;
+  top: 50%;
+}
+
+table#admin-organizations-list,
+table#admin-organization-leads-list,
+table#admin-organization-employee-list,
+table#admin-service-category-list thead th:last-child {
+  text-align: center;
+}
+
+table#admin-service-category-list .select-checkbox {
+  text-align: center;
+}
+
+.dataTables_processing {
+  color: transparent !important;
+}
+
+.dataTables_filter {
+  // display: none;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.statusBtn {
+  background-color: #d5d5d5;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.statusBtn {
+  background-color: #d5d5d5;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+button#active-inactive\ VERIFIED {
+  /* color: white; */
+  background: lightgreen;
+}
+
+button#active-inactive\ PROCESSING {
+  background: rgba(255, 212, 18, 0.652);
+}
+
+button#active-inactive\ APPROVED {
+  background: rgb(248, 176, 67);
+}
+
+.active-btnfalse {
+  background-color: lightgreen;
+  border-radius: 50px;
+  color: #fff;
+  width: 70px;
+  height: 24px;
+  border: 0px;
+}
+
+.active-btntrue {
+  background-color: #bf1414;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.decline-btn {
+  background-color: #ffb2db;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.connected-btn {
+  background-color: #83e2c2;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.pending-btn {
+  background-color: red;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.pending-btn2 {
+  background-color: red;
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+}
+
+.h2.font-weight-bold.mb-0 {
+  cursor: pointer;
+}
+
+hr {
+  border: 2px solid black; //divider style
+}
+
+.extra-class {
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.modal-dialog {
+  max-width: 800px !important;
+  margin: 1.75rem auto;
+}
+
+.modal-body {
+  margin-top: -3% !important;
+}
+
+.loaderss {
+  visibility: visible;
+  content: "";
+  border: 5px solid #f3f3f3;
+  border-top-color: rgb(243, 243, 243);
+  border-top-style: solid;
+  border-top-width: 5px;
+  border-top: 5px solid #ff8f6c;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  -webkit-animation: 0.7s linear infinite spin !important;
+  animation: 0.7s linear infinite spin !important;
+  top: 50%;
+  margin-left: 194%;
+}
+
+.readMoreBtn {
+  border-radius: 50px;
+  color: #fff;
+  border: 0px;
+  background-color: #ff7b45;
+  cursor: pointer;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#reserved-uuid-list {
+  thead {
+    th {
+      width: 200px !important;
+    }
+  }
+
+  tbody {
+    td {
+      word-break: all;
+    }
+  }
+}
+
+.statusBtn.used-btn {
+  background-color: red;
+}
+
+.statusBtn.unused-btn {
+  background-color: #7ba3df;
+}
+
+.select-boxes-option {
+  position: absolute;
+  right: 215px;
+  top: 2px;
+  z-index: 1;
+  @media screen and (max-width: 900px) and (min-width: 768px) {
+    left: 0;
+    top: 83px;
+    position: relative;
+  }
+  @media screen and (max-width: 767px) and (min-width: 641px) {
+    left: 215px;
+    top: 38px;
+    position: relative;
+  }
+  @media screen and (max-width: 640px) and (min-width: 474px) {
+    left: 215px;
+    top: 88px;
+    position: relative;
+  }
+  @media screen and (max-width: 475px) and (min-width: 320px) {
+    position: relative;
+    top: 135px;
+    left: 17px;
+  }
+
+  .form-control {
+    min-width: 174px;
+    height: 36px;
+    border-radius: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 10px;
+    border-color: #aaa !important;
+
+    &:hover {
+      box-shadow: none;
+      background-color: white !important;
+      transform: none !important;
+    }
+  }
+  .ngx-select__toggle-buttons {
+    a {
+      margin-right: 0;
+    }
+  }
+}
+
+.dataTables_filter {
+  max-width: 180px;
+}
+
+.dataTables_filter input[type="search"] {
+  max-width: 180px;
+  margin-top: 2px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.employee-form {
+  .ngx-select {
+    width: 100%;
+    background-color: #fff;
+    border-color: #ccc;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02) !important;
+  }
+
+  .ngx-select__toggle {
+    border: 0;
+  }
+}
+
+.createSpAccountForm {
+  .ng-valid {
+    width: 85%;
+  }
+
+  .ngx-select {
+    width: 100%;
+    outline: 0;
+
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+
+  .ngx-select__toggle {
+    border: 0;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: #8898aa !important;
+    font-weight: 400 !important;
+
+    &:hover {
+      outline: 0 !important;
+      background: none !important;
+      border: none !important;
+    }
+  }
+}
+
+.reportig-slect .dropdown {
+  width: 100%;
+  max-width: 180px;
+  margin: 10px 0;
+}
+
+.main-body {
+  margin: 20px;
+  box-shadow: 0px 2px 14px 2px #dedede91;
+}
+.reportig-slect span.ngx-select__toggle-buttons {
+  position: absolute;
+  right: -12px;
+}
+
+.datepicker-reporting input.form-control {
+  position: relative;
+  top: 10px;
+  padding: 7px;
+  height: auto;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 180px;
+  left: 15px;
+}
+
+.theme-green .bs-datepicker-head {
+  align-self: left;
+  background-color: #003555 !important;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: #ff9475 !important;
+}
+
+#line-bar-chart rect.highcharts-point.highcharts-color-0 {
+  fill: #fc9172 !important;
+}
+
+bs-daterangepicker-container.bottom {
+  left: 190px !important;
+
+  @media screen and (max-width: 1279px) {
+    left: 0 !important;
+  }
+}
+
+.theme-green .bs-datepicker-body table td span.selected {
+  background-color: #003555;
+}
+
+.datepicker-reporting .form-control:focus {
+  border-color: #003555 !important;
+}
+
+.selct-cntrl {
+  top: 46px;
+  left: 150px;
+  z-index: 1111;
+}
+
+.slect-control .ngx-select.dropdown {
+  width: 100%;
+  max-width: 350px;
+}
+
+div#org-emp-tip-recieved_length {
+  margin-bottom: 1rem;
+}
+
+.reportig-slect {
+  .ngx-select__toggle.btn.form-control {
+    border: 1px solid #dedede !important;
+    position: relative;
+    top: 0 !important;
+    padding: 7px !important;
+    height: auto !important;
+    border-radius: 3px !important;
+    max-width: 180px;
+    @media only screen and (max-width: 767px) {
+      left: 15px;
+    }
+  }
+
+  input.ngx-select__search.form-control {
+    height: auto !important;
+    padding: 7px !important;
+    border-radius: 3px !important;
+  }
+}
+
+text.highcharts-title {
+  display: none;
+}
+
+text {
+  font-family: "Open Sans";
+}
+
+.highcharts-credits {
+  display: none !important;
+}
+
+.highcharts-legend {
+  display: none !important;
+}
+
+#navbar-main {
+  .dropdown {
+    @media only screen and (max-width: 767px) {
+      position: absolute !important;
+      right: 20px !important;
+      top: 6px;
+    }
+  }
+}
+.sidebar_secondary {
+  background-color: $secondaryColor;
+
+  .nav-item {
+    li {
+      color: $primaryColor;
+    }
+    &:hover {
+      .nav-link {
+        color: #fff;
+      }
+    }
+  }
+  .nav-link {
+    color: #fff;
+  }
+}
+
+div#org-emp-tip-recieved_length {
+  @media only screen and (max-width: 767px) {
+    text-align: left;
+  }
+}
+
+.dataTables_length {
+  @media only screen and (max-width: 767px) {
+    text-align: left !important;
+    padding: 0 15px;
+  }
+}
+
+.admin-organization-leads-list_length.dataTables_filter {
+  @media screen and (max-width: 900px) and (min-width: 768px) {
+    input[type="search"] {
+      position: relative;
+      top: 40px;
+    }
+  }
+}
+
+.dashboard-selct ngx-select {
+  position: relative;
+  bottom: 50px;
+  right: 180px;
+  width: 180px;
+  @media only screen and (min-width: 1200px) {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.dashboard-selct .datepicker-reporting {
+  position: absolute;
+  bottom: 70px;
+  left: 25px;
+  @media only screen and (min-width: 1200px) {
+    bottom: 20px;
+    left: 190px;
+  }
+}
+
+div#pie-chart {
+  @media screen and (max-width: 600px) {
+    position: relative;
+    top: 20px;
+  }
+}
+
+.card-stats {
+  height: 100%;
+}
+
+button.btn.modalss {
+  @media screen and (max-width: 600px) {
+    margin-top: 15px;
+  }
+}
+
+div#sp-leads-list_filter {
+  padding: 0 15px;
+}
+
+.dataTables_filter label {
+  @media screen and (max-width: 600px) {
+    text-align: left;
+    padding: 0 15px;
+  }
+}
+
+table#admin-organization-leads-list {
+  @media screen and (max-width: 900px) and (min-width: 768px) {
+    position: relative;
+    top: 40px;
+  }
+  @media screen and (max-width: 475px) {
+    position: relative;
+    top: 59px;
+  }
+}
+
+table#admin-organization-employee-list {
+  @media screen and (max-width: 475px) {
+    position: relative;
+    top: 50px;
+  }
+}
+.browesr-filed p {
+  margin: 0;
+  padding: 0;
+}
+table#admin-organization-employee-list {
+  @media screen and (max-width: 900px) and (min-width: 768px) {
+    position: relative;
+    top: 50px;
+  }
+}
+div#line-bar-chart {
+  position: relative;
+  top: 20px;
+}
+.reporting-boxes {
+  @media screen and (max-width: 1279px) {
+    position: absolute;
+    top: 45px;
+    left: 16px;
+    width: 300px;
+  }
+}
+
+div#who-is-tipping_filter {
+  @media screen and (max-width: 1279px) and (min-width: 992px) {
+    position: relative;
+    top: 43px;
+  }
+
+  @media screen and (max-width: 991.95px) and (min-width: 774px) {
+    float: left;
+    top: 96px;
+    position: relative;
+    right: 154px;
+  }
+  @media screen and (max-width: 773px) and (min-width: 768px) {
+    position: relative;
+    top: 50px;
+    float: left;
+  }
+  @media screen and (max-width: 767px) {
+    position: relative;
+    top: 43px;
+  }
+}
+table#who-is-tipping {
+  @media screen and (max-width: 1279px) {
+    position: relative;
+    top: 50px;
+  }
+  @media screen and (max-width: 991.95px) and (min-width: 774px) {
+    top: 100px;
+  }
+}
+.preview-model {
+  width: 550px;
+  @media screen and (max-width: 600px) {
+    width: 320px;
+  }
+}
+
+//datatable top list styling.
+.dataTables_length {
+  position: relative;
+  // bottom: 8px;
+  -webkit-animation: hide-show 1s 5s forwards;
+  animation: hide-show 0s 5s forwards;
+  max-width: 200px;
+  width: 100%;
+  @media (max-width: 767px) {
+    display: none;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "Show Entries"; //Show Entries
+      color: #122137;
+      word-spacing: 85px;
+      z-index: 0;
+      background-color: #fff;
+    }
+    select {
+      border-color: rgb(15, 8, 8); //$primary color used
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 6px;
+      padding: 0.375rem 0.75rem;
+      z-index: 2;
+    }
+    select {
+      margin: 0px 25px;
+    }
+  }
+}
+
+.dataTables_filter label {
+  display: flex;
+  // flex-direction: row-reverse;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: transparent;
+  width: auto;
+  box-sizing: border-box;
+  align-items: center;
+  input {
+    padding: 0px !important;
+    border: unset !important;
+    width: 90% !important;
+    max-width: none !important;
+    margin: 0px !important;
+    outline-offset: 0px;
+  }
+}
+
+.icon-bx {
+  width: 40px;
+  height: 40px;
+  background: #003555;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  outline: 1px solid;
+  margin-right: 16px;
+}
+.common-head {
+  font-size: 25px;
+  font-weight: 700;
+  color: #003555;
+}
+.sub_icon-bx {
+  width: 30px;
+  height: 30px;
+  background: #96b69c;
+  border-radius: 50px;
+  margin-right: 12px;
+}
+.sub-head,
+.label-head {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003555;
+}
+.bx-outline {
+  border: 1px solid #c6d2d9;
+  padding: 20px;
+  border-radius: 6px;
+}
+.form-control-label.label-head {
+  font-size: 15px;
+  color: #003555;
+}
+.label-head {
+  font-size: 15px;
+  color: #003555;
+}
+.border-bottom {
+  border-bottom: 1px solid #c6d2d9;
+}
+
+ngx-select,
+ngx-select .ngx-select.dropdown {
+  width: 100%;
+}
+
+.btn-published,
+.btn-add-tag {
+  color: #0079d4 !important;
+  background-color: transparent;
+  background-image: none;
+  border-color: #0079d4 !important;
+}
+
+#table_products {
+  .img_product {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    width: 100px;
+    height: auto;
+  }
+}
+
+.nav_header_bg {
+  background-color: $secondaryColor;
+}
+
+* {
+  border-radius: 0px !important;
+  outline: none !important;
+}
+
+.swal2-icon {
+  $radius: 50%;
+  border-radius: $radius !important;
+  &.swal2-success {
+    .swal2-success-ring {
+      border-radius: $radius !important;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "~src/variable";
+
+::ng-deep {
+    .tabset {
+        .nav-link {
+            color: #3CA3C4;
+            font-size: 20px;
+            font-weight: bold;
+
+            &:hover {
+                color: #00ECB9;
+            }
+            &.active {
+                background-color: #3CA3C4;
+            }
+        }
+    }
+}
+
+.loader {
+    content: "";
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    color: #FFFFFF;
+    visibility: visible;
+    border: 5px solid #F3F3F3;
+    border-top: 5px solid $primaryColor;
+    border-radius: 50%;
+    -webkit-animation: .7s linear infinite spin !important;
+    animation: .7s linear infinite spin !important;
+}

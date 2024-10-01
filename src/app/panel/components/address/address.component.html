@@ -1,0 +1,88 @@
+<!-- <pre class="_d-none">{{same_as?.address_control?.value| json}}</pre> -->
+<!-- <pre class="_d-none">{{FormGroupAddress.value| json}}</pre> -->
+<div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <h3 class="m-0 p-0 mb-0">{{title}}</h3>
+            </div>
+            <ng-container *ngIf="same_as !== null">
+                <div class="col-6 d-flex justify-content-end">
+                    <button class="btn btn-sm btn-info" (click)="onclick_copy_address_from();">Copy from
+                        {{same_as?.control_title}}</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <form [formGroup]="FormGroupAddress" (change)="change_value();">
+        <div class="card-body">
+            <div class="m-0 p-0">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-address_line_1">Address
+                                line</label>
+                            <input type="text" formControlName="address_line_1" id="input-address_line_1"
+                                class="form-control" placeholder="Address line">
+                            <app-show-error [control]="FormGroupAddress.controls['address_line_1']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-village_town_city">Village Town City</label>
+                            <input type="text" formControlName="village_town_city" id="input-village_town_city"
+                                class="form-control" placeholder="Village Town City">
+                            <app-show-error [control]="FormGroupAddress.controls['village_town_city']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-taluka">Taluka</label>
+                            <input type="text" formControlName="taluka" id="input-taluka" class="form-control"
+                                placeholder="Taluka">
+                            <app-show-error [control]="FormGroupAddress.controls['taluka']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-district">District</label>
+                            <input type="text" formControlName="district" id="input-district" class="form-control"
+                                placeholder="District">
+                            <app-show-error [control]="FormGroupAddress.controls['district']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-pin_code">Pin code</label>
+                            <input type="text" formControlName="pin_code" id="input-pin_code" class="form-control"
+                                placeholder="Pin code">
+                            <app-show-error [control]="FormGroupAddress.controls['pin_code']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group m-0 p-0">
+                            <label class="form-control-label" for="input-state">State</label>
+                            <select formControlName="state" id="input-state" class="form-control">
+                                <option value="" disabled>State</option>
+                                <option value="gujarat">Gujarat</option>
+                            </select>
+                            <app-show-error [control]="FormGroupAddress.controls['state']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

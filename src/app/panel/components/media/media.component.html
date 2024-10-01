@@ -1,0 +1,27 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<pre class="d-none">{{Media | json}}</pre>
+<div class="card-body m-0 p-0">
+    <div class="form-group m-0 p-0">
+        <div *ngIf="Media && Media._id">
+            <img crossorigin="anonymous" [src]="Media.thumbnail" /><br />
+        </div>
+
+        <div class="input-group">
+            <div class="custom-file">
+                <label class="custom-file-label" for="input-file">
+                    {{SelectedFiles[0]?.name || 'Choose file to upload'}}
+                </label>
+                <input accept="image/png,image/PNG,image/jpg,image/JPG,image/jpeg,image/JPEG"
+                    (change)="ChangeFiles($event);" class="custom-file-input" id="input-file" type="file" />
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-sm btn-primary button_upload" type="button"
+                    (click)="UploadFiles();">Upload</button>
+            </div>
+        </div>
+
+        <ul class="validation-errors">
+            <li *ngFor="let item of FileErrors;">{{item}}</li>
+        </ul>
+    </div>
+</div>

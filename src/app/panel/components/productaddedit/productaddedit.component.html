@@ -1,0 +1,96 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h3 class="m-0 p-0 mb-0">Products Add/Edit</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="FormGroupProductIsCreated">
+                    <form [formGroup]="FormGroupProduct" (ngSubmit)="FormGroupProductSubmit();">
+                        <pre class="d-none">{{FormGroupProduct.value | json}}</pre>
+                        <div class="card-body">
+                            <div class="m-0 p-0">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Product picture</label>
+                                            <app-media [Media]="Media" [MediaWhere]="'product_picture'"
+                                                (OnMediaChange)="GetNewMedia($event);"></app-media>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-product_name">Product
+                                                Name</label>
+                                            <input type="text" formControlName="product_name" id="input-product_name"
+                                                class="form-control" placeholder="Product Name">
+                                            <app-show-error
+                                                [control]="FormGroupProduct.controls['product_name']"></app-show-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-product_price">Product
+                                                Price</label>
+                                            <input type="text" formControlName="product_price" id="input-product_price"
+                                                class="form-control" placeholder="Product Price">
+                                            <app-show-error
+                                                [control]="FormGroupProduct.controls['product_price']"></app-show-error>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-product_description">Product
+                                                Description</label>
+                                            <input type="text" formControlName="product_description"
+                                                id="input-product_description" class="form-control"
+                                                placeholder="Product Description">
+                                            <app-show-error
+                                                [control]="FormGroupProduct.controls['product_description']"></app-show-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group m-0 p-0">
+                                            <label class="form-control-label" for="input-status">Status</label>
+                                            <select formControlName="status" id="input-status" class="form-control">
+                                                <option value="active" selected>Active</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
+                                            <app-show-error
+                                                [control]="FormGroupProduct.controls['status']"></app-show-error>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="m-0 p-0 pt-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                        <a class="btn btn-sm btn-danger" routerLinkActive="active"
+                                            [routerLink]="['/', 'panel', 'product']">
+                                            Back To Products</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

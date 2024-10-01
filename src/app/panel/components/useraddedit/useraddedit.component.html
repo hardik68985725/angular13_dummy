@@ -1,0 +1,85 @@
+<app-loader *ngIf="IsLoading"></app-loader>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="m-0 p-0 mb-0">User Add/Edit</h3>
+                        </div>
+                    </div>
+                </div>
+                <form [formGroup]="FormGroupUser" (ngSubmit)="FormGroupUserSubmit();">
+                    <pre class="d-none">{{FormGroupUser.value | json}}</pre>
+                    <div class="card-body">
+                        <div class="m-0 p-0">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-email">Email</label>
+                                        <input type="email" formControlName="email" id="input-email"
+                                            class="form-control" placeholder="Email">
+                                        <app-show-error [control]="FormGroupUser.controls['email']"></app-show-error>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group m-0 p-0">
+                                        <label class="form-control-label" for="input-role">Role</label>
+                                        <select formControlName="role" id="input-role" class="form-control"
+                                            (change)="OnChange_Role($any($event.target).value);">
+                                            <option value="" disabled>Role</option>
+                                            <ng-container *ngFor="let user_role of user_roles;">
+                                                <option [value]="user_role.value">{{user_role.text}}</option>
+                                            </ng-container>
+                                        </select>
+                                        <app-show-error [control]="FormGroupUser.controls['role']"></app-show-error>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-parent_user">Main User</label>
+                                        <!-- <pre class="_d-none">{{parent_users | json}}</pre> -->
+                                        <select formControlName="parent_user" id="input-parent_user"
+                                            class="form-control">
+                                            <option value="" disabled>Main User</option>
+                                            <ng-container *ngFor="let _parent_user of parent_users;">
+                                                <option [value]="_parent_user.value">{{_parent_user.text}}</option>
+                                            </ng-container>
+                                        </select>
+                                        <app-show-error
+                                            [control]="FormGroupUser.controls['parent_user']"></app-show-error>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group m-0 p-0">
+                                        <label class="form-control-label" for="input-status">Status</label>
+                                        <select formControlName="status" id="input-status" class="form-control">
+                                            <ng-container *ngFor="let _status of status;">
+                                                <option [value]="_status.value">{{_status.text}}</option>
+                                            </ng-container>
+                                        </select>
+                                        <app-show-error [control]="FormGroupUser.controls['status']"></app-show-error>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-0 p-0 pt-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

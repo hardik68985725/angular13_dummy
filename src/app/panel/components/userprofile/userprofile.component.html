@@ -1,0 +1,66 @@
+<div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="m-0 p-0 mb-0">Details</h3>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="FormGroupUserprofile" (change)="change_value();">
+        <div class="card-body">
+            <div class="m-0 p-0">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-first_name">First name</label>
+                            <input type="text" formControlName="first_name" id="input-first_name" class="form-control"
+                                placeholder="First name">
+                            <app-show-error [control]="FormGroupUserprofile.controls['first_name']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-last_name">Last name</label>
+                            <input type="text" formControlName="last_name" id="input-last_name" class="form-control"
+                                placeholder="Last name">
+                            <app-show-error [control]="FormGroupUserprofile.controls['last_name']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-mobile_phone_number">Mobile phone
+                                number</label>
+                            <input type="text" formControlName="mobile_phone_number" id="input-mobile_phone_number"
+                                class="form-control" placeholder="Mobile phone number">
+                            <app-show-error
+                                [control]="FormGroupUserprofile.controls['mobile_phone_number']"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-birth_date">Birth date</label>
+                            <input type="text" formControlName="birth_date" id="input-birth_date" class="form-control"
+                                placeholder="Birth date" bsDatepicker [bsConfig]="{
+                                    dateInputFormat: 'DD-MM-YYYY',
+                                    containerClass:'theme-default',
+                                    adaptivePosition: true
+                                }">
+                            <app-show-error [control]="FormGroupUserprofile.controls['birth_date']"></app-show-error>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <app-address formControlName="address"></app-address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
